@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_working_project/view/screens/home/home_screen.dart';
+import 'package:new_working_project/view/screens/hosting_events/hosting_events_screen.dart';
 import 'package:new_working_project/view/screens/my_states/my_ststes_screen.dart';
 
 void main(){
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: StatsScreen(),
+      home: HostedEventsScreen(),
       builder: (context, child) {
         ScreenUtil.init(
           context,
