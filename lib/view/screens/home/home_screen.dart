@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:new_working_project/view/screens/create_event/create_event_screen.dart';
-import 'package:new_working_project/view/screens/register_now/register_now_screen.dart';
+import 'package:get/get.dart';
+import 'package:new_working_project/view/screens/live_screen/live_screen.dart';
+import 'package:new_working_project/view/screens/video_upload/upload_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -22,20 +23,21 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: ElevatedButton(
                   onPressed: () {
-                    showModalBottomSheet(
-                      backgroundColor: Colors.white,
-                      context: context,
-                      isScrollControlled:
-                          true, // Makes the bottom sheet expandable
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.vertical(
-                          top: Radius.circular(20), // Rounded top corners
-                        ),
-                      ),
-                      builder: (context) {
-                        return const EventDetailsSheet();
-                      },
-                    );
+                    Get.to(() => LiveScreen());
+                    // showModalBottomSheet(
+                    //   backgroundColor: Colors.white,
+                    //   context: context,
+                    //   isScrollControlled:
+                    //       true, // Makes the bottom sheet expandable
+                    //   shape: const RoundedRectangleBorder(
+                    //     borderRadius: BorderRadius.vertical(
+                    //       top: Radius.circular(20), // Rounded top corners
+                    //     ),
+                    //   ),
+                    //   builder: (context) {
+                    //     return const EventDetailsSheet();
+                    //   },
+                    // );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,
@@ -45,27 +47,28 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
-                  child: const Text("Event Details"),
+                  child: const Text("Live Screen"),
                 ),
               ),
               const SizedBox(width: 10),
               Expanded(
                 child: ElevatedButton(
                   onPressed: () {
-                    showModalBottomSheet(
-                      backgroundColor: Colors.white,
-                      context: context,
-                      isScrollControlled:
-                          true, // Makes the bottom sheet expandable
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.vertical(
-                          top: Radius.circular(20), // Rounded top corners
-                        ),
-                      ),
-                      builder: (context) {
-                        return const CreateEventSheet();
-                      },
-                    );
+                    Get.to(() => VideoUploadScreen());
+                    // showModalBottomSheet(
+                    //   backgroundColor: Colors.white,
+                    //   context: context,
+                    //   isScrollControlled:
+                    //       true, // Makes the bottom sheet expandable
+                    //   shape: const RoundedRectangleBorder(
+                    //     borderRadius: BorderRadius.vertical(
+                    //       top: Radius.circular(20), // Rounded top corners
+                    //     ),
+                    //   ),
+                    //   builder: (context) {
+                    //     return const CreateEventSheet();
+                    //   },
+                    // );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,
@@ -75,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
-                  child: const Text("Create Event"),
+                  child: const Text("Video Upload Screen"),
                 ),
               ),
             ],

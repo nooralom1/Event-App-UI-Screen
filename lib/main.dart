@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/route_manager.dart';
 import 'package:new_working_project/view/screens/home/home_screen.dart';
-import 'package:new_working_project/view/screens/hosting_events/hosting_events_screen.dart';
-import 'package:new_working_project/view/screens/my_states/my_ststes_screen.dart';
 
 void main(){
   runApp(MyApp());
@@ -12,9 +11,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HostedEventsScreen(),
+      home: HomeScreen(),
       builder: (context, child) {
         ScreenUtil.init(
           context,
