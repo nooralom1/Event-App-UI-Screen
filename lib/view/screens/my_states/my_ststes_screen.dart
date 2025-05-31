@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_working_project/view/screens/my_states/model/activity_model.dart';
 import 'package:new_working_project/view/screens/my_states/widget/activity_tile.dart';
-import 'package:new_working_project/view/screens/my_states/widget/custom_profile.dart';
 import 'package:new_working_project/view/screens/my_states/widget/custom_card.dart';
+import 'package:new_working_project/view/screens/my_states/widget/custom_profile.dart';
 import 'package:new_working_project/view/screens/my_states/widget/learning_widget.dart';
 
 class StatsScreen extends StatefulWidget {
