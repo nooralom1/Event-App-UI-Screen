@@ -1,8 +1,8 @@
 // ignore_for_file: deprecated_member_use
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
 class LiveViewCard extends StatelessWidget {
   final String imageUrl;
@@ -89,7 +89,7 @@ class LiveViewCard extends StatelessWidget {
                         width: 40.w,
                         decoration: BoxDecoration(shape: BoxShape.circle),
                         child: ClipRRect(
-                          borderRadius: BorderRadiusGeometry.circular(150.r),
+                          borderRadius: BorderRadius.circular(150.r),
                           child: CachedNetworkImage(
                             imageUrl: profile,
                             fit: BoxFit.cover,
@@ -103,10 +103,9 @@ class LiveViewCard extends StatelessWidget {
                       Text(
                         name,
                         style: TextStyle(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white
-                        ),
+                            fontSize: 14.sp,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
                         overflow: TextOverflow.ellipsis,
                       ),
                     ],
@@ -129,11 +128,13 @@ class LiveViewCard extends StatelessWidget {
                       SizedBox(height: 4.h),
                       Row(
                         children: [
-                          Icon(Icons.visibility_outlined,color: Colors.white,size: 15.sp),
+                          Icon(Icons.visibility_outlined,
+                              color: Colors.white, size: 15.sp),
                           SizedBox(width: 5.w),
                           Text(
                             view,
-                            style: TextStyle(fontSize: 12.sp, color: Colors.white),
+                            style:
+                                TextStyle(fontSize: 12.sp, color: Colors.white),
                           ),
                         ],
                       ),
