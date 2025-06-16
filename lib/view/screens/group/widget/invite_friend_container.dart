@@ -1,15 +1,23 @@
 // ignore_for_file: deprecated_member_use, use_build_context_synchronously
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:qr_flutter/qr_flutter.dart';
-import 'package:flutter/services.dart';
 
 class InviteCard extends StatelessWidget {
-  final String inviteLink = 'https://girlstrip.app/joir';
-  final String inviteCode = '847291';
-
-  const InviteCard({super.key});
+  final String inviteLink;
+  final String inviteCode;
+  final void Function()? textOnTap;
+  final void Function()? emailOnTap;
+  final void Function()? socialOnTap;
+  const InviteCard(
+      {super.key,
+      required this.inviteLink,
+      required this.inviteCode,
+      this.textOnTap,
+      this.emailOnTap,
+      this.socialOnTap});
 
   Future<void> _copyToClipboard(BuildContext context) async {
     await Clipboard.setData(ClipboardData(text: inviteLink));
@@ -71,6 +79,7 @@ class InviteCard extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    SizedBox(height: 12.h),
                     Text(
                       'Invite Code',
                       style: TextStyle(
@@ -103,7 +112,7 @@ class InviteCard extends StatelessWidget {
                             padding: EdgeInsets.symmetric(horizontal: 8.w),
                             child: Center(
                               child: Text(
-                                'girlstrip.app/joir',
+                                inviteLink,
                                 style: TextStyle(
                                   fontSize: 14.sp,
                                   color: Colors.black,
@@ -137,58 +146,73 @@ class InviteCard extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 16.h,),
+                SizedBox(
+                  height: 16.h,
+                ),
                 Row(
                   children: [
-                    Container(
-                      padding: EdgeInsets.all(8.sp),
-                      decoration: BoxDecoration(
-                        color: Color(0xFF4B5EAA), 
-                        borderRadius: BorderRadius.circular(12.r),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Icon(
-                            Icons.message,
-                            color: Colors.white,
-                            size: 18.sp,
-                          ),
-                          SizedBox(height: 2.h),
-                          Text("Text", style: TextStyle(fontSize: 10.sp)),
-                        ],
-                      ),
-                    ),
-                     SizedBox(width: 16.w,),
-                    Container(
-                      padding: EdgeInsets.all(8.sp),
-                      decoration: BoxDecoration(
-                        color: Color(0xFF4B5EAA), 
-                        borderRadius: BorderRadius.circular(12.r),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Icon(Icons.email, color: Colors.white, size: 18.sp),
-                          SizedBox(height: 2.h),
-                          Text("Email", style: TextStyle(fontSize: 10.sp)),
-                        ],
+                    GestureDetector(
+                      onTap: textOnTap,
+                      child: Container(
+                        padding: EdgeInsets.all(8.sp),
+                        decoration: BoxDecoration(
+                          color: Colors.blueAccent,
+                          borderRadius: BorderRadius.circular(12.r),
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(
+                              Icons.message,
+                              color: Colors.white,
+                              size: 18.sp,
+                            ),
+                            SizedBox(height: 2.h),
+                            Text("Text", style: TextStyle(fontSize: 10.sp)),
+                          ],
+                        ),
                       ),
                     ),
-                    SizedBox(width: 16.w,),
-                    Container(
-                      padding: EdgeInsets.all(8.sp),
-                      decoration: BoxDecoration(
-                        color: Color(0xFF4B5EAA), 
-                        borderRadius: BorderRadius.circular(12.r),
+                    SizedBox(
+                      width: 16.w,
+                    ),
+                    GestureDetector(
+                      onTap: emailOnTap,
+                      child: Container(
+                        padding: EdgeInsets.all(8.sp),
+                        decoration: BoxDecoration(
+                          color: Colors.blueAccent,
+                          borderRadius: BorderRadius.circular(12.r),
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(Icons.email, color: Colors.white, size: 18.sp),
+                            SizedBox(height: 2.h),
+                            Text("Email", style: TextStyle(fontSize: 10.sp)),
+                          ],
+                        ),
                       ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Icon(Icons.group, color: Colors.white, size: 18.sp),
-                          SizedBox(height: 2.h),
-                          Text("Social", style: TextStyle(fontSize: 10.sp)),
-                        ],
+                    ),
+                    SizedBox(
+                      width: 16.w,
+                    ),
+                    GestureDetector(
+                      onTap: socialOnTap,
+                      child: Container(
+                        padding: EdgeInsets.all(8.sp),
+                        decoration: BoxDecoration(
+                          color: Colors.blueAccent,
+                          borderRadius: BorderRadius.circular(12.r),
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(Icons.group, color: Colors.white, size: 18.sp),
+                            SizedBox(height: 2.h),
+                            Text("Social", style: TextStyle(fontSize: 10.sp)),
+                          ],
+                        ),
                       ),
                     ),
                   ],
